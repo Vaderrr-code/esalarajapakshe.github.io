@@ -7,33 +7,33 @@
     <!-- Importing Chic Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables for Light/Dark Mode Toggling */
+        /* CSS Variables for Light/Dark Mode Toggling - Chic Beige & Blue Palette */
         :root {
-            --bg-body: #f4f5f7;
+            --bg-body: #f9f8f6; /* Very soft beige */
             --bg-header: #ffffff;
             --bg-section: #ffffff;
-            --text-main: #1a1a1a;
-            --text-muted: #666666;
-            --text-meta: #777777;
-            --border-color: #eaeaea;
-            --border-highlight: #1a1a1a;
-            --shadow-color: rgba(0,0,0,0.04);
-            --tab-bg-hover: #f0f0f0;
-            --tab-bg-active: #e0e0e0;
+            --text-main: #2c3e50; /* Deep blue-grey */
+            --text-muted: #5e6d7c;
+            --text-meta: #7f8c8d;
+            --border-color: #e5e0d8; /* Warm beige border */
+            --border-highlight: #819fb4; /* Chic light dusty blue */
+            --shadow-color: rgba(44, 62, 80, 0.05); /* Soft blueish shadow */
+            --tab-bg-hover: #f1f4f6; /* Pale blue hover */
+            --tab-bg-active: #e3ebf0; /* Light blue active tab */
         }
 
         [data-theme="dark"] {
-            --bg-body: #121212;
-            --bg-header: #1e1e1e;
-            --bg-section: #1e1e1e;
-            --text-main: #f0f0f0;
-            --text-muted: #aaaaaa;
-            --text-meta: #999999;
-            --border-color: #333333;
-            --border-highlight: #f0f0f0;
+            --bg-body: #12181f; /* Very dark slate blue */
+            --bg-header: #1b242e;
+            --bg-section: #1b242e;
+            --text-main: #f0f4f8; /* Soft pale blue/white */
+            --text-muted: #abb8c3;
+            --text-meta: #8d9ba8;
+            --border-color: #2c3e50;
+            --border-highlight: #b0c4de; /* Light steel blue */
             --shadow-color: rgba(0,0,0,0.4);
-            --tab-bg-hover: #2a2a2a;
-            --tab-bg-active: #3a3a3a;
+            --tab-bg-hover: #263342;
+            --tab-bg-active: #324458;
         }
 
         body {
@@ -48,10 +48,10 @@
         
         /* Dark Mode Toggle Button */
         .theme-toggle {
-            position: fixed; /* Changed to fixed so it moves with the page */
+            position: fixed; 
             top: 20px;
             right: 20px;
-            z-index: 1001; /* Keeps it above the content while scrolling */
+            z-index: 1001; 
             background: none;
             border: 1px solid var(--border-color);
             border-radius: 50%;
@@ -67,7 +67,8 @@
             box-shadow: 0 2px 8px var(--shadow-color);
         }
         .theme-toggle:hover {
-            border-color: var(--text-main);
+            border-color: var(--border-highlight);
+            color: var(--border-highlight);
         }
         .theme-toggle svg {
             width: 20px;
@@ -94,7 +95,7 @@
             box-shadow: 0 4px 12px var(--shadow-color);
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s, border-color 0.3s;
+            transition: opacity 0.3s ease, visibility 0.3s, border-color 0.3s, color 0.3s;
             z-index: 1000;
         }
         #backToTop.show {
@@ -102,7 +103,8 @@
             visibility: visible;
         }
         #backToTop:hover {
-            border-color: var(--text-main);
+            border-color: var(--border-highlight);
+            color: var(--border-highlight);
         }
 
         header {
@@ -129,15 +131,15 @@
             font-weight: 300;
         }
         header a {
-            color: var(--text-main);
+            color: var(--border-highlight);
             text-decoration: none;
             border-bottom: 1px solid var(--border-highlight);
             padding-bottom: 2px;
             transition: all 0.3s ease;
         }
         header a:hover {
-            color: var(--text-muted);
-            border-color: var(--text-muted);
+            color: var(--text-main);
+            border-color: var(--text-main);
         }
         .container {
             width: 85%;
@@ -162,14 +164,13 @@
             box-shadow: 0 8px 24px var(--shadow-color);
             margin-bottom: 40px;
             border: 1px solid var(--border-color);
-            /* Combined all transitions to fix the CSS conflict during dark mode toggle */
             transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         h2 {
             font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
             color: var(--text-main);
-            border-bottom: 1px solid var(--border-highlight);
+            border-bottom: 2px solid var(--border-highlight);
             padding-bottom: 10px;
             margin-top: 0; 
             margin-bottom: 35px;
@@ -231,8 +232,8 @@
             background-color: var(--tab-bg-hover);
         }
         .tab-btn.active {
-            color: var(--text-main);
-            border-bottom-color: var(--text-main);
+            color: var(--border-highlight);
+            border-bottom-color: var(--border-highlight);
             font-weight: 500;
             background-color: var(--tab-bg-active);
         }
