@@ -48,9 +48,10 @@
         
         /* Dark Mode Toggle Button */
         .theme-toggle {
-            position: absolute;
+            position: fixed; /* Changed to fixed so it moves with the page */
             top: 20px;
             right: 20px;
+            z-index: 1001; /* Keeps it above the content while scrolling */
             background: none;
             border: 1px solid var(--border-color);
             border-radius: 50%;
@@ -63,6 +64,7 @@
             justify-content: center;
             transition: all 0.3s ease;
             background-color: var(--bg-header);
+            box-shadow: 0 2px 8px var(--shadow-color);
         }
         .theme-toggle:hover {
             border-color: var(--text-main);
@@ -147,7 +149,6 @@
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease-out;
         }
         .reveal.active {
             opacity: 1;
@@ -161,7 +162,8 @@
             box-shadow: 0 8px 24px var(--shadow-color);
             margin-bottom: 40px;
             border: 1px solid var(--border-color);
-            transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            /* Combined all transitions to fix the CSS conflict during dark mode toggle */
+            transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         h2 {
             font-family: 'Playfair Display', serif;
